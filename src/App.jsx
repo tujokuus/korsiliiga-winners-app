@@ -2,19 +2,35 @@ import { useState } from 'react'
 import './App.css'
 
 // Voittajien valitsemis komponentti jossa käytetään radio buttonia
-const SelectWinners = () => {
+const SelectWinners = ({ teams }) => {
+  console.log(teams);
   return (
     <form>
       Valitse otteluiden voittajat:
       <div>
-        <input type='radio' id="matchAWinner" name='joukkue' value='loimaa bisons'/>
-        <label for='matchAWinner'> Loimaa Bisons</label>
+        <input type='radio' id="matchAWinner" name='team' value='loimaa bisons'/>
+        <label htmlFor='matchAWinner'> {teams.name}</label>
         
-        <input type="radio" id="matchAWinner" name="joukkue" value="Kouvot"/>
-        <label for="matchAWinner"> Kouvot</label>
+        <input type="radio" id="matchAWinner" name="team" value="Kouvot"/>
+        <label htmlFor="matchAWinner"> Kouvot</label>
       </div>
     </form>
   )
+}
+
+// Arpoo joukkueista satunnaisen otteluparin
+const GetRandomMatch = (teams) => {
+  // Kopioidaan alkuperäinen teams-taulukko
+  const shuffledTeams = [...teams];
+
+  // Sekoitetaan taulukko Fisher-Yates algoritmilla
+  for (let i = shuffledTeams.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledTeams[i], shuffledTeams[j]] = [shuffledTeams[j], shuffledTeams[i]];
+  }
+
+  // Palautetaan kaksi ensimmäistä joukkuetta taulukosta ottelupariksi
+  return { teamA: shuffledTeams[0], teamB: shuffledTeams[1] };
 }
 
 // ColorChangebutton-komponentti, jossa kaksi nappia
@@ -43,7 +59,7 @@ const App = () => {
   const [winnerA, setWinnerA] = useState(0)
   const [color, setColor] = useState('blue')
   
-  // Esimerkkilistä nimistä
+  // Esimerkkilistä joukkueista
   const teams = [
     { id: 1, name: 'Tampereen Pyrintö' },
     { id: 2, name: 'Bisons' },
@@ -51,6 +67,8 @@ const App = () => {
     { id: 4, name: 'Karhubasket' },
     { id: 5, name: 'BC Nokia' }
   ]
+  const randomTeam = GetRandomMatch(teams)
+  console.log(randomTeam);
 
   // Funktio vaihtamaan napin väriä
   const changeColor = () => {
@@ -75,8 +93,7 @@ const App = () => {
         </button>
         
         <ColorChangeButton color={color} changeColor={changeColor} oppositeColor={oppositeColor}/>
-        <SelectWinners></SelectWinners>
-        
+        <SelectWinners teams={teams}/>
     </>
   )
 }
