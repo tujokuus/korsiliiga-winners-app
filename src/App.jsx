@@ -2,17 +2,17 @@ import { useState } from 'react'
 import './App.css'
 
 // Voittajien valitsemis komponentti jossa käytetään radio buttonia
-const SelectWinners = ({ teams }) => {
-  console.log(teams);
+const SelectWinners = ({ match }) => {
+  const { teamA, teamB } = match
   return (
     <form>
       Valitse otteluiden voittajat:
       <div>
-        <input type='radio' id="matchAWinner" name='team' value='loimaa bisons'/>
-        <label htmlFor='matchAWinner'> {teams.name}</label>
+        <input type='radio' id="matchAWinner" name='team' value={teamA.name}/>
+        <label htmlFor='matchAWinner'> {teamA.name} </label>
         
-        <input type="radio" id="matchAWinner" name="team" value="Kouvot"/>
-        <label htmlFor="matchAWinner"> Kouvot</label>
+        <input type="radio" id="matchAWinner" name="team" value={teamB.name}/>
+        <label htmlFor="matchAWinner"> {teamB.name}</label>
       </div>
     </form>
   )
@@ -67,8 +67,8 @@ const App = () => {
     { id: 4, name: 'Karhubasket' },
     { id: 5, name: 'BC Nokia' }
   ]
-  const randomTeam = GetRandomMatch(teams)
-  console.log(randomTeam);
+  const randomMatch = GetRandomMatch(teams)
+  console.log(randomMatch);
 
   // Funktio vaihtamaan napin väriä
   const changeColor = () => {
@@ -93,7 +93,7 @@ const App = () => {
         </button>
         
         <ColorChangeButton color={color} changeColor={changeColor} oppositeColor={oppositeColor}/>
-        <SelectWinners teams={teams}/>
+        <SelectWinners match={randomMatch}/>
     </>
   )
 }
