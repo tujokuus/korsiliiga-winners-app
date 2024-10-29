@@ -55,6 +55,14 @@ const ColorChangeButton = ({ color, changeColor, oppositeColor}) => {
   )
 }
 
+const SendButton = ({ handleSend }) => {
+  return (
+    <div>
+      <button onClick={handleSend}> lähetä </button>
+    </div>
+  )
+}
+
 const App = () => {
   const [winnerA, setWinnerA] = useState(0)
   const [color, setColor] = useState('blue')
@@ -82,6 +90,10 @@ const App = () => {
     return 'blue'
   }
 
+  const handleSend = () => {
+    console.log('sendia klikattu');
+  }
+
   const oppositeColor = getOppositeColor(color)
 
   return (
@@ -94,6 +106,9 @@ const App = () => {
         
         <ColorChangeButton color={color} changeColor={changeColor} oppositeColor={oppositeColor}/>
         <SelectWinners match={randomMatch}/>
+        <SelectWinners match={randomMatch}/>
+        <SelectWinners match={randomMatch}/>
+        <SendButton handleSend={handleSend}/>
     </>
   )
 }
