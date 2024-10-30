@@ -1,38 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-
-// Voittajien valitsemis komponentti jossa käytetään radio buttonia
-const SelectWinners = ({ match, onWinnerSelect }) => {
-  const { teamA, teamB } = match
-
-  const handleSelection = (event) => {
-    onWinnerSelect(match.id, event.target.value)
-  }
-  return (
-    <form>
-      
-      <div>
-        <input 
-          type='radio' 
-          id={`teamA-${match.id}`} 
-          name={`match-${match.id}`} 
-          value={teamA.name}
-          onChange={handleSelection}
-        />
-        <label htmlFor='matchAWinner'> {teamA.name} </label>
-        
-        <input 
-          type="radio" 
-          id={`teamB-${match.id}`} 
-          name={`match-${match.id}`} 
-          value={teamB.name}
-          onChange={handleSelection}
-        />
-        <label htmlFor="matchAWinner"> {teamB.name}</label>
-      </div>
-    </form>
-  )
-}
+import SelectWinners from './components/SelectWinners'
+import SendButton from './components/SendButton'
 
 // Arpoo joukkueista satunnaisen otteluparin
 const GetRandomMatch = (teams) => {
@@ -49,7 +18,8 @@ const GetRandomMatch = (teams) => {
   return { teamA: shuffledTeams[0], teamB: shuffledTeams[1] }
 }
 
-// ColorChangebutton-komponentti, jossa kaksi nappia
+/*
+// ColorChangebutton-komponentti, jossa kaksi nappia 
 const ColorChangeButton = ({ color, changeColor, oppositeColor}) => {
   
   return (
@@ -70,14 +40,9 @@ const ColorChangeButton = ({ color, changeColor, oppositeColor}) => {
     </p>
   )
 }
+*/
 
-const SendButton = ({ handleSend }) => {
-  return (
-    <div>
-      <button onClick={handleSend}> lähetä </button>
-    </div>
-  )
-}
+
 
 const App = () => {
   const [color, setColor] = useState('blue')
@@ -98,10 +63,12 @@ const App = () => {
     { id: 5, name: 'BC Nokia' }
   ]
 
+  /*
   // Funktio vaihtamaan napin väriä
   const changeColor = () => {
     setColor((prevColor) => (prevColor === 'green' ? 'red' : 'green'))
   }
+*/
 
   // Määritellään vastakkainen väri suhteessä nykyiseen väriin
   const getOppositeColor = (color) => {
@@ -124,14 +91,12 @@ const App = () => {
   return (
     <>
         <h1>Ennusta korisliiga otteluiden voittajat!</h1>
-        
-        <ColorChangeButton color={color} changeColor={changeColor} oppositeColor={oppositeColor}/>
         {matches.map((match) => (
-        <SelectWinners 
-          key={match.id} 
-          match={match} 
-          onWinnerSelect={handleWinnerSelect} 
-        />
+          <SelectWinners 
+            key={match.id} 
+            match={match} 
+            onWinnerSelect={handleWinnerSelect} 
+          />
       ))}
         <SendButton handleSend={handleSend}/>
     </>
