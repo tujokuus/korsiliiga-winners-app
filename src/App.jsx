@@ -2,16 +2,32 @@ import { useState } from 'react'
 import './App.css'
 
 // Voittajien valitsemis komponentti jossa käytetään radio buttonia
-const SelectWinners = ({ match }) => {
+const SelectWinners = ({ match, onWinnerSelect }) => {
   const { teamA, teamB } = match
+
+  const handleSelection = (event) => {
+    onWinnerSelect(match.id, event.target.value)
+  }
   return (
     <form>
-      Valitse otteluiden voittajat:
+      
       <div>
-        <input type='radio' id="matchAWinner" name='team' value={teamA.name}/>
+        <input 
+          type='radio' 
+          id={`teamA-${match.id}`} 
+          name={`match-${match.id}`} 
+          value={teamA.name}
+          onChange={handleSelection}
+        />
         <label htmlFor='matchAWinner'> {teamA.name} </label>
         
-        <input type="radio" id="matchAWinner" name="team" value={teamB.name}/>
+        <input 
+          type="radio" 
+          id={`teamB-${match.id}`} 
+          name={`match-${match.id}`} 
+          value={teamB.name}
+          onChange={handleSelection}
+        />
         <label htmlFor="matchAWinner"> {teamB.name}</label>
       </div>
     </form>
@@ -30,7 +46,7 @@ const GetRandomMatch = (teams) => {
   }
 
   // Palautetaan kaksi ensimmäistä joukkuetta taulukosta ottelupariksi
-  return { teamA: shuffledTeams[0], teamB: shuffledTeams[1] };
+  return { teamA: shuffledTeams[0], teamB: shuffledTeams[1] }
 }
 
 // ColorChangebutton-komponentti, jossa kaksi nappia
@@ -64,8 +80,14 @@ const SendButton = ({ handleSend }) => {
 }
 
 const App = () => {
-  const [winnerA, setWinnerA] = useState(0)
   const [color, setColor] = useState('blue')
+  const [winners, setWinners] = useState({})
+  //kiinteä ottelulista testaus datalla
+  const matches = [
+    { id: 1, teamA: { name: 'Tampereen Pyrintö' }, teamB: { name: 'Bisons' } },
+    { id: 2, teamA: { name: 'Kouvot' }, teamB: { name: 'Karhubasket' } },
+    { id: 3, teamA: { name: 'BC Nokia' }, teamB: { name: 'Helsinki Seagulls' } }
+  ]
   
   // Esimerkkilistä joukkueista
   const teams = [
@@ -75,8 +97,6 @@ const App = () => {
     { id: 4, name: 'Karhubasket' },
     { id: 5, name: 'BC Nokia' }
   ]
-  const randomMatch = GetRandomMatch(teams)
-  console.log(randomMatch);
 
   // Funktio vaihtamaan napin väriä
   const changeColor = () => {
@@ -90,8 +110,13 @@ const App = () => {
     return 'blue'
   }
 
+
   const handleSend = () => {
-    console.log('sendia klikattu');
+    console.log('valitut voittajat:', winners);
+  }
+
+  const handleWinnerSelect = (matchId, winner) => {
+    setWinners((prevWinners) => ({ ...prevWinners, [matchId]: winner}))
   }
 
   const oppositeColor = getOppositeColor(color)
@@ -99,15 +124,15 @@ const App = () => {
   return (
     <>
         <h1>Ennusta korisliiga otteluiden voittajat!</h1>
-        <button 
-        onClick={() => setWinnerA((winnerA) => winnerA + 1)}>
-        winner is {winnerA}
-        </button>
         
         <ColorChangeButton color={color} changeColor={changeColor} oppositeColor={oppositeColor}/>
-        <SelectWinners match={randomMatch}/>
-        <SelectWinners match={randomMatch}/>
-        <SelectWinners match={randomMatch}/>
+        {matches.map((match) => (
+        <SelectWinners 
+          key={match.id} 
+          match={match} 
+          onWinnerSelect={handleWinnerSelect} 
+        />
+      ))}
         <SendButton handleSend={handleSend}/>
     </>
   )
