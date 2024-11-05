@@ -1,0 +1,12 @@
+{
+    "matches": [
+      { "id": 1, "teamA": { "name": "Tampereen Pyrintö" }, "teamB": { "name": "Bisons" } },
+      { "id": 2, "teamA": { "name": "Kouvot" }, "teamB": { "name": "Karhubasket" } },
+      { "id": 3, "teamA": { "name": "BC Nokia" }, "teamB": { "name": "Helsinki Seagulls" } },
+      { "id": 4, "teamA": { "name": "Kataja Basket" }, "teamB": { "name": "Lahti Basketball" } },
+      { "id": 5, "teamA": { "name": "Ura Basket" }, "teamB": { "name": "Kouvot" } },
+      { "id": 6, "teamA": { "name": "Kobrat" }, "teamB": { "name": "Tampereen Pyrintö" } },
+      { "id": 7, "teamA": { "name": "Vilpas Vikings" }, "teamB": { "name": "BC Nokia" } }
+    ]
+  }
+  
