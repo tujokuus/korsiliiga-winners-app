@@ -1,6 +1,6 @@
-import SelectWinners from '../components/SelectWinners'
+import SelectWinners from '../components/SelectWinners/SelectWinners.jsx'
 import SendButton from '../components/SendButton'
-import Standings from '../components/Standings'
+import Standings from '../components/Standings/Standings.jsx'
 import './pickEms.css'
 
 const PickEms = ({ matches, handleWinnerSelect, handleSend, standings }) => {
@@ -14,7 +14,7 @@ const PickEms = ({ matches, handleWinnerSelect, handleSend, standings }) => {
         <SendButton handleSend={handleSend} />
       </div>
         <div className='standings-container'>
-          <strong>Sarjataulukko</strong>
+ 
           <Standings standings={standings} />
         
       </div>

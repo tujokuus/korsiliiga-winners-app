@@ -35,11 +35,9 @@ import './selectWinners.css'
       <form>
       <div className="match-container">
         <div className="match-info">
-
+            {formattedDate}     {formattedTime}
         </div>
         <div className="team-selection">
-        <p><strong>Ottelu:</strong></p>
-          
           <div
             className={`team-name ${selectedTeam === teamA.name ? 'selected' : ''}`}
             onClick={() => handleSelection(teamA.name)}
@@ -52,10 +50,6 @@ import './selectWinners.css'
           >
             {teamB.name}
           </div>
-          <p>
-            <strong>pvm:</strong> {formattedDate} <br />
-            <strong>aika:</strong> {formattedTime}
-          </p>
         </div> 
       </div>
     </form>

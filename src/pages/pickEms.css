@@ -10,7 +10,19 @@
 }
 
 .standings-container {
-  flex: 2;
-  padding-left: 20px;
-  border-left: 1px solid #ccc;
+  flex: 1;
+  padding-left: 40px;
+  max-width: 200px;
+}
+
+.standings-container table {
+  width: 100%;
+}
+
+.standings-container th, .standings-container td {
+  text-align: left;
+  padding: 5px;
+  white-space: nowrap; /* Estää tekstin rivittymisen */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Lisää ellipsin, jos teksti ei mahdu */
 }

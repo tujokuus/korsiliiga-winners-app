@@ -1,0 +1,22 @@
+.standings-container {
+    font-family: Arial, sans-serif; /* Muuta fonttia */
+    font-size: 13px; /* Muuta fonttikokoa */
+}
+.standings-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.standings-container th, .standings-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.standings-container th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+  .standings-container tr:nth-child(even) {
+    background-color: #f2f2f2; /* Hieman harmaampi taustaväri joka toiselle riville */
+  }

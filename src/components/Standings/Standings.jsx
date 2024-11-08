@@ -1,17 +1,18 @@
 import React from 'react';
+import './standings.css';
 
 const Standings = ({ standings }) => {
   return (
-    <div>
+    <div className='standings-container'>
       <h2>Sarjataulukko</h2>
       <table>
         <thead>
           <tr>
             <th>Joukkue</th>
-            <th>Pelatut</th>
-            <th>Voitot</th>
-            <th>Tappiot</th>
-            <th>Pisteet</th>
+            <th>O</th>
+            <th>V</th>
+            <th>H</th>
+            <th>P</th>
           </tr>
         </thead>
         <tbody>
