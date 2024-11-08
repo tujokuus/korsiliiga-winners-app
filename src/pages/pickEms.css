@@ -1,28 +1,24 @@
 .pickems-container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Varmistaa, että elementit ovat ylhäältä linjassa */
+  align-items: flex-start; 
 }
 
 .matches-container {
-  flex: 3;
   padding-right: 20px;
 }
 
 .standings-container {
-  flex: 1;
   padding-left: 40px;
   max-width: 200px;
 }
 
-.standings-container table {
-  width: 100%;
-}
-
+  
 .standings-container th, .standings-container td {
   text-align: left;
   padding: 5px;
-  white-space: nowrap; /* Estää tekstin rivittymisen */
+  white-space: nowrap; 
   overflow: hidden;
-  text-overflow: ellipsis; /* Lisää ellipsin, jos teksti ei mahdu */
+  text-overflow: ellipsis; 
 }
+

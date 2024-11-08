@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './selectWinners.css'
+import MatchDetails from '../MatchDetails/MatchDetails'
+import ToggleButton from '../DetailsToggleButton'
   
   
   // Voittajien valitsemis komponentti jossa käytetään radio buttonia
@@ -7,11 +9,16 @@ import './selectWinners.css'
       const { teamA, teamB } = match
       const date = match.date
       const [selectedTeam, setSelectedTeam] = useState({})
+      const [showDetails, setShowDetails] = useState(false)
       
       
       const handleSelection = (team) => {
         setSelectedTeam(team)
         onWinnerSelect(match.id, team)
+      }
+
+      const toggleDetails = () => {
+        setShowDetails(!showDetails)
       }
 
       const matchDate = date ? new Date(date) : null
@@ -51,6 +58,8 @@ import './selectWinners.css'
             {teamB.name}
           </div>
         </div> 
+        <ToggleButton showDetails={showDetails} toggleDetails={toggleDetails} />
+        {showDetails && <MatchDetails match={match} />}
       </div>
     </form>
       )
