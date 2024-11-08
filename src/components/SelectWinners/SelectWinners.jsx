@@ -39,13 +39,13 @@ import './selectWinners.css'
         </div>
         <div className="team-selection">
           <div
-            className={`team-name ${selectedTeam === teamA.name ? 'selected' : ''}`}
+            className={`team-name ${selectedTeam === teamA.name ? 'selectedHome' : ''}`}
             onClick={() => handleSelection(teamA.name)}
           >
             {teamA.name}
           </div>
           <div
-            className={`team-name ${selectedTeam === teamB.name ? 'selected' : ''}`}
+            className={`team-name ${selectedTeam === teamB.name ? 'selectedAway' : ''}`}
             onClick={() => handleSelection(teamB.name)}
           >
             {teamB.name}
