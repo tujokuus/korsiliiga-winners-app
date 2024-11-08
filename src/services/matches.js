@@ -1,9 +1,14 @@
 import axios from "axios"
 
-const baseUrl = 'http://localhost:3001/matches'
+const matches = 'http://localhost:3001/matches'
+const standings = 'http://localhost:3001/standings'
 
 const getMatches = () => {
-    return axios.get(baseUrl)
+    return axios.get(matches)
 }
 
-export default { getMatches }
+const getStandings = () => {
+    return axios.get(standings)
+}
+
+export default { getMatches, getStandings }

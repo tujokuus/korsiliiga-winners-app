@@ -9,12 +9,9 @@ import PickEms from './pages/PickEms';
 const App = () => {
   const [winners, setWinners] = useState({})
   const [matches, setMatches] = useState([])
- // const matches = [
- //   { id: 1, teamA: { name: 'Tampereen Pyrintö' }, teamB: { name: 'Bisons' } },
- //   { id: 2, teamA: { name: 'Kouvot' }, teamB: { name: 'Karhubasket' } },
- //   { id: 3, teamA: { name: 'BC Nokia' }, teamB: { name: 'Helsinki Seagulls' } },
- // ]
+  const [standings, setStandings] = useState([])
 
+  // haetaan ottelut ja sarjataulukko palvelimelta
   useEffect(() => {
     pickemService
       .getMatches()
@@ -26,13 +23,25 @@ const App = () => {
       })
   }, [])
 
+  useEffect(() => {
+    pickemService
+      .getStandings()
+      .then(response => {
+        setStandings(response.data)
+      })
+      .catch(error => {
+        console.log('Error fetching standings: ' , error);
+      })
+  })
+
+  // toistaiseksi funktio tulostaa valitut voittajat konsoliin
   const handleSend = () => {
     console.log('valitut voittajat:', winners);
-  };
+  }
 
   const handleWinnerSelect = (matchId, winner) => {
     setWinners((prevWinners) => ({ ...prevWinners, [matchId]: winner }));
-  };
+  }
 
   return (
     <Router>
@@ -49,6 +58,7 @@ const App = () => {
               matches={matches}
               handleWinnerSelect={handleWinnerSelect}
               handleSend={handleSend}
+              standings={standings}
             />
           }
         />
