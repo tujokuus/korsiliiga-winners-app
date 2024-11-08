@@ -1,0 +1,16 @@
+.pickems-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Varmistaa, että elementit ovat ylhäältä linjassa */
+}
+
+.matches-container {
+  flex: 3;
+  padding-right: 20px;
+}
+
+.standings-container {
+  flex: 2;
+  padding-left: 20px;
+  border-left: 1px solid #ccc;
+}
