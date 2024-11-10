@@ -2,14 +2,17 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import pickemService from './services/matches'
-import Home from './pages/Home';
-import Statistics from './pages/Statistics';
-import PickEms from './pages/PickEms';
+import Home from './pages/Home'
+import Statistics from './pages/Statistics'
+import PickEms from './pages/PickEms'
+import TopBar from './components/TopBar/TopBar'
 
 const App = () => {
   const [winners, setWinners] = useState({})
   const [matches, setMatches] = useState([])
   const [standings, setStandings] = useState([])
+  const [points, setPonts] = useState(19)
+  const [showTopBar, setShowTopBar] = useState(false)
 
   // haetaan ottelut ja sarjataulukko palvelimelta
   useEffect(() => {
@@ -34,6 +37,25 @@ const App = () => {
       })
   })
 
+  // Näytä yläreunan palkki, kun käyttäjä selaa ylöspäin
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      if (window.scrollY < lastScrollY) {
+        setShowTopBar(true);
+      } else {
+        setShowTopBar(false);
+      }
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
   // toistaiseksi funktio tulostaa valitut voittajat konsoliin
   const handleSend = () => {
     console.log('valitut voittajat:', winners);
@@ -45,6 +67,7 @@ const App = () => {
 
   return (
     <Router>
+      <TopBar handleSend={handleSend} points={points} showTopBar={showTopBar} />
       <nav>
         <Link to="/">Koti</Link> | <Link to="/tilastot">Tilastot</Link> | <Link to="/pickems">PickEms</Link>
       </nav>

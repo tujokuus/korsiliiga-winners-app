@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './selectWinners.css'
 import MatchDetails from '../MatchDetails/MatchDetails'
-import ToggleButton from '../DetailsToggleButton'
+import DetailsToggleButton from '../Buttons/DetailsToggleButton'
   
   
   // Voittajien valitsemis komponentti jossa käytetään radio buttonia
@@ -58,7 +58,7 @@ import ToggleButton from '../DetailsToggleButton'
             {teamB.name}
           </div>
         </div> 
-        <ToggleButton showDetails={showDetails} toggleDetails={toggleDetails} />
+        <DetailsToggleButton showDetails={showDetails} toggleDetails={toggleDetails} className='details-toggle-button' />
         {showDetails && <MatchDetails match={match} />}
       </div>
     </form>
