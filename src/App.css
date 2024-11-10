@@ -1,3 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  margin-top: 0px; /* Lisää marginaali yläreunan palkin korkeuden verran */
+}
+
+nav {
+  margin-top: 40px; /* Lisää marginaali yläreunan palkin korkeuden verran */
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;

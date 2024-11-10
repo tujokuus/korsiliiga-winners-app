@@ -71,6 +71,7 @@ const App = () => {
       <nav>
         <Link to="/">Koti</Link> | <Link to="/tilastot">Tilastot</Link> | <Link to="/pickems">PickEms</Link>
       </nav>
+      <main>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tilastot" element={<Statistics />} />
@@ -86,6 +87,7 @@ const App = () => {
           }
         />
       </Routes>
+      </main>
     </Router>
   );
 };
