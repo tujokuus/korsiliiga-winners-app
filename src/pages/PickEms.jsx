@@ -14,9 +14,7 @@ const PickEms = ({ matches, handleWinnerSelect, handleSend, standings }) => {
         <SendButton handleSend={handleSend} />
       </div>
         <div className='standings-container'>
- 
           <Standings standings={standings} />
-        
       </div>
     </div>
   )
