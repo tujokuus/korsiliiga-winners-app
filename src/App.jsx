@@ -13,7 +13,13 @@ const App = () => {
   const [standings, setStandings] = useState([])
   const [points, setPoints] = useState(19)
   const [showTopBar, setShowTopBar] = useState(false)
-  const  [selectedWeek, setSelectedWeek] = useState(1)
+  const [selectedWeek, setSelectedWeek] = useState(1)
+
+  
+
+  useEffect(() => {
+    setSelectedWeek(getCurrentWeek())
+  }, [])
 
   // haetaan ottelut ja sarjataulukko palvelimelta
   useEffect(() => {
@@ -40,21 +46,28 @@ const App = () => {
 
   // Näytä yläreunan palkki, kun käyttäjä selaa ylöspäin
   useEffect(() => {
-    let lastScrollY = window.scrollY;
+    let lastScrollY = window.scrollY
     const handleScroll = () => {
       if (window.scrollY < lastScrollY) {
-        setShowTopBar(true);
+        setShowTopBar(true)
       } else {
-        setShowTopBar(false);
+        setShowTopBar(false)
       }
-      lastScrollY = window.scrollY;
-    };
+      lastScrollY = window.scrollY
+    }
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  const getCurrentWeek = () => {
+    const now = new Date()
+    const oneJan = new Date(now.getFullYear(), 0, 1)
+    const numberOfDays = Math.floor((now - oneJan) / (24 * 60 * 60 * 1000))
+    return Math.ceil((now.getDay() + 1 + numberOfDays) / 7)
+  }
 
   const handleSelectedWeek = (week) => {
     setSelectedWeek(week)
@@ -67,7 +80,7 @@ const App = () => {
   }
 
   const handleWinnerSelect = (matchId, winner) => {
-    setWinners((prevWinners) => ({ ...prevWinners, [matchId]: winner }));
+    setWinners((prevWinners) => ({ ...prevWinners, [matchId]: winner }))
   }
 
   return (
