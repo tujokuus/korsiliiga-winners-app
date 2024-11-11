@@ -11,9 +11,13 @@ const PickEms = ({ matches, handleWinnerSelect, handleSend, standings, selectedW
     const numberOfDays = Math.floor((d - oneJan) / (24 * 60 * 60 * 1000))
     return Math.ceil((d.getDay() + 1 + numberOfDays) / 7)
   }
-  const filteredMatches = matches.filter(
-    (match) => getWeekNumber(match.date) === selectedWeek
-  )
+
+  const filteredMatches = selectedWeek === 0
+  ? matches
+  : matches.filter(
+      (match) => getWeekNumber(match.date) === selectedWeek
+    )
+
   //console.log("handlewinnerselect: ", handleWinnerSelect);
   //console.log("handle send: ", handleSend);
   //console.log("selected Week pickems sivulla: ", selectedWeek, "handleselectedWeek pickems sivulla: ", handleSelectedWeek)

@@ -12,6 +12,7 @@ const WeekSelector = ({ selectedWeek, setSelectedWeek }) => {
         value={selectedWeek}
         onChange={(e) => setSelectedWeek(Number(e.target.value))}
       >
+        <option value={0}>Kaikki pelit</option>
         {weeks.map((week) => (
           <option key={week} value={week}>
             Viikko {week}
