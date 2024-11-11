@@ -11,8 +11,9 @@ const App = () => {
   const [winners, setWinners] = useState({})
   const [matches, setMatches] = useState([])
   const [standings, setStandings] = useState([])
-  const [points, setPonts] = useState(19)
+  const [points, setPoints] = useState(19)
   const [showTopBar, setShowTopBar] = useState(false)
+  const  [selectedWeek, setSelectedWeek] = useState(1)
 
   // haetaan ottelut ja sarjataulukko palvelimelta
   useEffect(() => {
@@ -55,6 +56,10 @@ const App = () => {
     };
   }, []);
 
+  const handleSelectedWeek = (week) => {
+    setSelectedWeek(week)
+    console.log("handleselected viikkoa kutsuttu appissa");
+  }
 
   // toistaiseksi funktio tulostaa valitut voittajat konsoliin
   const handleSend = () => {
@@ -83,6 +88,8 @@ const App = () => {
               handleWinnerSelect={handleWinnerSelect}
               handleSend={handleSend}
               standings={standings}
+              selectedWeek={selectedWeek}
+              handleSelectedWeek={handleSelectedWeek}
             />
           }
         />
