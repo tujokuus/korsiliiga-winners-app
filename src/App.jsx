@@ -81,6 +81,7 @@ const App = () => {
 
   const handleWinnerSelect = (matchId, winner) => {
     setWinners((prevWinners) => ({ ...prevWinners, [matchId]: winner }))
+    console.log("handlewinnerselect kutsuttu appissa, matchId: ", matchId, "winner: ", winner);
   }
 
   return (
