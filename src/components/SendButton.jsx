@@ -1,7 +1,7 @@
 const SendButton = ({ handleSend }) => {
     return (
       <div>
-        <button onClick={handleSend}> lähetä </button>
+        <button onClick={handleSend}> tallenna </button>
       </div>
     )
   }
