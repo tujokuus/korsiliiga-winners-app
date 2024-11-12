@@ -74,9 +74,30 @@ const App = () => {
     console.log("handleselected viikkoa kutsuttu appissa");
   }
 
-  // toistaiseksi funktio tulostaa valitut voittajat konsoliin
-  const handleSend = () => {
-    console.log('valitut voittajat:', winners);
+  // Tallenna valitut voittajat tietokantaan
+  const handleSend = (event) => {
+    event.preventDefault();
+    
+    const predictions = Object.keys(winners).map((matchId, index) => ({
+      id: index + 1,
+      match_id: parseInt(matchId),
+      user_id: 1,
+      predicted_winner: winners[matchId],
+      created_at: new Date().toISOString()
+    }))
+    
+    console.log("ennustetut voittajat handlesendissä: ", predictions)
+
+    predictions.forEach(prediction => {
+      pickemService
+        .savePredictions(prediction)
+        .then(response => {
+          console.log('valitut voittajat tallennettu:', response.data)
+        })
+        .catch(error => {
+          console.log('Error saving predictions: ', error)
+        })
+    })
   }
 
   const handleWinnerSelect = (matchId, winner) => {

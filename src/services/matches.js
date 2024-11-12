@@ -1,5 +1,6 @@
 import axios from "axios"
 
+const baseUrl = 'http://localhost:3001'
 const matches = 'http://localhost:3001/matches'
 const standings = 'http://localhost:3001/standings'
 
@@ -11,4 +12,8 @@ const getStandings = () => {
     return axios.get(standings)
 }
 
-export default { getMatches, getStandings }
+const savePredictions = (prediction) => {
+    return axios.post(`${baseUrl}/predictions`, prediction);
+}
+
+export default { getMatches, getStandings, savePredictions }
