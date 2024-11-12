@@ -16,4 +16,8 @@ const savePredictions = (prediction) => {
     return axios.post(`${baseUrl}/predictions`, prediction);
 }
 
-export default { getMatches, getStandings, savePredictions }
+const getPredictions = () => {
+    return axios.get(`${baseUrl}/predictions`)
+}
+
+export default { getMatches, getStandings, savePredictions, getPredictions }

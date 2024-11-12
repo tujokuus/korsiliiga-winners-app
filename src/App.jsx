@@ -8,12 +8,13 @@ import PickEms from './pages/PickEms'
 import TopBar from './components/TopBar/TopBar'
 
 const App = () => {
-  const [winners, setWinners] = useState({})
+  const [winners, setWinners] = useState([])
   const [matches, setMatches] = useState([])
   const [standings, setStandings] = useState([])
   const [points, setPoints] = useState(19)
   const [showTopBar, setShowTopBar] = useState(false)
   const [selectedWeek, setSelectedWeek] = useState(1)
+  const [predictions, setPredictions] = useState([])
 
   
 
@@ -33,6 +34,7 @@ const App = () => {
       })
   }, [])
 
+  // haetaan sarjataulukko tietokannasta
   useEffect(() => {
     pickemService
       .getStandings()
@@ -40,9 +42,26 @@ const App = () => {
         setStandings(response.data)
       })
       .catch(error => {
-        console.log('Error fetching standings: ' , error);
+        console.log('Error fetching standings: ' , error)
       })
   })
+
+  // Funktio hakemaan olemassa olevat ennustukset tietokannasta
+  const fetchPredictions = () => {
+    pickemService
+      .getPredictions()
+      .then(response => {
+        setPredictions(response.data)
+      })
+      .catch(error => {
+        console.log('Error fetching predictions: ', error)
+      })
+  }
+
+  // Haetaan olemassa olevat ennustukset tietokannasta, kun komponentti ladataan
+  useEffect(() => {
+    fetchPredictions()
+  }, [])
 
   // Näytä yläreunan palkki, kun käyttäjä selaa ylöspäin
   useEffect(() => {
@@ -71,32 +90,46 @@ const App = () => {
 
   const handleSelectedWeek = (week) => {
     setSelectedWeek(week)
-    console.log("handleselected viikkoa kutsuttu appissa");
   }
+
+  const checkExistingPrediction = (matchId, userId) => {
+    //console.log("checkExistingprediction predictions: ", prediction, "matchId: ", matchId, "userId: ", userId)
+    console.log(predictions)
+    console.log(predictions.some(predictions => predictions.match_id === matchId && predictions.user_id === userId))
+    return predictions.some(predictions => predictions.match_id === matchId && predictions.user_id === userId)
+  }
+
 
   // Tallenna valitut voittajat tietokantaan
   const handleSend = (event) => {
     event.preventDefault();
     
-    const predictions = Object.keys(winners).map((matchId, index) => ({
-      id: index + 1,
+    const newPredictions = Object.keys(winners).map((matchId, index) => ({
       match_id: parseInt(matchId),
       user_id: 1,
       predicted_winner: winners[matchId],
       created_at: new Date().toISOString()
     }))
     
-    console.log("ennustetut voittajat handlesendissä: ", predictions)
+    console.log("hanldeSend newPredictions ", newPredictions)
+    console.log("handleSend predictions ", predictions);
+    console.log("handleSend winners ", winners)
 
-    predictions.forEach(prediction => {
-      pickemService
-        .savePredictions(prediction)
-        .then(response => {
-          console.log('valitut voittajat tallennettu:', response.data)
-        })
-        .catch(error => {
-          console.log('Error saving predictions: ', error)
-        })
+    newPredictions.forEach(prediction => {
+      if (!checkExistingPrediction(prediction.match_id, prediction.user_id)) {
+        pickemService
+          .savePredictions(prediction)
+          .then(response => {
+            console.log('valittu voittaja tallennettu:', response.data)
+            
+            fetchPredictions()
+          })
+          .catch(error => {
+            console.log('Error saving prediction: ', error);
+          });
+      } else {
+        console.log(`Ennustus ottelulle ${prediction.match_id} on jo olemassa.`)
+      }
     })
   }
 
@@ -131,7 +164,7 @@ const App = () => {
       </Routes>
       </main>
     </Router>
-  );
-};
+  )
+}
 
-export default App;
+export default App
