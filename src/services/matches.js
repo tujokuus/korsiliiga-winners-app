@@ -20,4 +20,8 @@ const getPredictions = () => {
     return axios.get(`${baseUrl}/predictions`)
 }
 
-export default { getMatches, getStandings, savePredictions, getPredictions }
+const updatePredictions = (id, prediction) => {
+    return axios.put(`${baseUrl}/predictions/${id}`, prediction)
+}
+
+export default { getMatches, getStandings, savePredictions, getPredictions, updatePredictions }

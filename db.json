@@ -393,74 +393,32 @@
   ],
   "predictions": [
     {
-      "id": "59c8",
       "match_id": 1,
       "user_id": 1,
-      "predicted_winner": "Tampereen Pyrintö",
-      "created_at": "2024-11-12T13:00:35.734Z"
+      "predicted_winner": "Bisons",
+      "created_at": "2024-11-13T11:47:40.230Z",
+      "id": "59c8"
     },
     {
-      "id": "b767",
       "match_id": 2,
       "user_id": 1,
       "predicted_winner": "Kouvot",
-      "created_at": "2024-11-12T13:09:02.438Z"
+      "created_at": "2024-11-13T11:47:40.230Z",
+      "id": "6ac6"
     },
     {
-      "id": "25fe",
       "match_id": 3,
       "user_id": 1,
-      "predicted_winner": "BC Nokia",
-      "created_at": "2024-11-12T13:30:36.749Z"
+      "predicted_winner": "Helsinki Seagulls",
+      "created_at": "2024-11-13T11:47:40.230Z",
+      "id": "73cd"
     },
     {
-      "id": "ef1f",
       "match_id": 4,
       "user_id": 1,
       "predicted_winner": "Kataja Basket",
-      "created_at": "2024-11-12T13:46:29.803Z"
-    },
-    {
-      "id": "c71c",
-      "match_id": 25,
-      "user_id": 1,
-      "predicted_winner": "Ura Basket",
-      "created_at": "2024-11-13T08:54:09.549Z"
-    },
-    {
-      "id": "1f89",
-      "match_id": 26,
-      "user_id": 1,
-      "predicted_winner": "Kobrat",
-      "created_at": "2024-11-13T08:54:09.549Z"
-    },
-    {
-      "id": "136c",
-      "match_id": 27,
-      "user_id": 1,
-      "predicted_winner": "Tampereen Pyrintö",
-      "created_at": "2024-11-13T08:54:09.549Z"
-    },
-    {
-      "id": "7012",
-      "match_id": 28,
-      "user_id": 1,
-      "predicted_winner": "Lahti Basketball",
-      "created_at": "2024-11-13T08:54:09.549Z"
-    },
-    {
-      "id": "963f",
-      "match_id": 30,
-      "user_id": 1,
-      "predicted_winner": "Helsinki Seagulls",
-      "created_at": "2024-11-13T08:54:09.549Z"
-    },
-    {
-      "id": "834e",
-      "match_id": 5,
-      "user_id": 1,
-      "predicted_winner": "Kouvot",
-      "created_at": "2024-11-13T10:52:27.050Z"
+      "created_at": "2024-11-13T11:47:40.230Z",
+      "id": "775b"
     }
   ],
   "results": [

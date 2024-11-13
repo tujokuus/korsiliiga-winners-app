@@ -97,9 +97,9 @@ const App = () => {
 
   const checkExistingPrediction = (matchId, userId) => {
     //console.log("checkExistingprediction predictions: ", prediction, "matchId: ", matchId, "userId: ", userId)
-    console.log(predictions)
-    console.log(predictions.some(predictions => predictions.match_id === matchId && predictions.user_id === userId))
-    return predictions.some(predictions => predictions.match_id === matchId && predictions.user_id === userId)
+   // console.log(predictions)
+    //console.log(predictions.some(predictions => predictions.match_id === matchId && predictions.user_id === userId))
+    return predictions.find(predictions => predictions.match_id === matchId && predictions.user_id === userId)
   }
 
 
@@ -114,12 +114,10 @@ const App = () => {
       created_at: new Date().toISOString()
     }))
     
-    console.log("hanldeSend newPredictions ", newPredictions)
-    console.log("handleSend predictions ", predictions);
-    console.log("handleSend winners ", winners)
-
     newPredictions.forEach(prediction => {
-      if (!checkExistingPrediction(prediction.match_id, prediction.user_id)) {
+      console.log(prediction);
+      const exisistingPrediction = checkExistingPrediction(prediction.match_id, prediction.user_id)
+      if (!exisistingPrediction) {
         pickemService
           .savePredictions(prediction)
           .then(response => {
@@ -131,14 +129,23 @@ const App = () => {
             console.log('Error saving prediction: ', error);
           });
       } else {
-        console.log(`Ennustus ottelulle ${prediction.match_id} on jo olemassa.`)
+        console.log(`Ennustus ottelulle ${prediction.match_id} on jo olemassa, päivitetään ennustus`)
+        console.log(exisistingPrediction.id)
+        pickemService
+          .updatePredictions(exisistingPrediction.id, prediction)
+          .then(response => {
+            console.log("uusi ennustus tallennettu: ", response.data)
+            fetchPredictions()
+          })
+          .catch(error => {
+            console.log('Error updating prediction: ', error) 
+          })
       }
     })
   }
 
   const handleWinnerSelect = (matchId, winner) => {
     setWinners((prevWinners) => ({ ...prevWinners, [matchId]: winner }))
-    console.log("handlewinnerselect kutsuttu appissa, matchId: ", matchId, "winner: ", winner);
   }
 
   return (
