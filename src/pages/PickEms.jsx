@@ -4,7 +4,7 @@ import Standings from '../components/Standings/Standings.jsx'
 import WeekSelector from '../components/WeekSelector/WeekSelector.jsx'
 import './pickEms.css'
 
-const PickEms = ({ matches, handleWinnerSelect, handleSend, standings, selectedWeek, handleSelectedWeek }) => {
+const PickEms = ({ matches, handleWinnerSelect, handleSend, standings, selectedWeek, handleSelectedWeek, predictions, winners }) => {
   const getWeekNumber = (date) => {
     const d = new Date(date);
     const oneJan = new Date(d.getFullYear(), 0, 1)
@@ -30,7 +30,7 @@ const PickEms = ({ matches, handleWinnerSelect, handleSend, standings, selectedW
         <h2>Ennusta korisliiga otteluiden voittajat!</h2>
         <WeekSelector selectedWeek={selectedWeek} setSelectedWeek={handleSelectedWeek}/>
         {filteredMatches.map((match) => (
-          <SelectWinners key={match.id} match={match} onWinnerSelect={handleWinnerSelect} />
+          <SelectWinners key={match.id} match={match} onWinnerSelect={handleWinnerSelect} predictions={predictions} />
         ))}
         <div className='sendbutton-container'>
           <SendButton handleSend={handleSend} />

@@ -52,6 +52,9 @@ const App = () => {
       .getPredictions()
       .then(response => {
         setPredictions(response.data)
+        response.data.forEach(prediction => {
+          handleWinnerSelect(prediction.match_id, prediction.predicted_winner)
+        })
       })
       .catch(error => {
         console.log('Error fetching predictions: ', error)
@@ -158,6 +161,8 @@ const App = () => {
               standings={standings}
               selectedWeek={selectedWeek}
               handleSelectedWeek={handleSelectedWeek}
+              predictions={predictions}
+              winners={winners}
             />
           }
         />

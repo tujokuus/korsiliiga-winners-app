@@ -1,7 +1,7 @@
 {
   "matches": [
     {
-      "id": 1,
+      "id": "1",
       "teamA": {
         "name": "Tampereen Pyrintö"
       },
@@ -11,7 +11,7 @@
       "date": "2024-03-15T18:30:00"
     },
     {
-      "id": 2,
+      "id": "2",
       "teamA": {
         "name": "Kouvot"
       },
@@ -21,7 +21,7 @@
       "date": "2024-03-17T19:00:00"
     },
     {
-      "id": 3,
+      "id": "3",
       "teamA": {
         "name": "BC Nokia"
       },
@@ -31,7 +31,7 @@
       "date": "2024-03-19T17:00:00"
     },
     {
-      "id": 4,
+      "id": "4",
       "teamA": {
         "name": "Kataja Basket"
       },
@@ -41,7 +41,7 @@
       "date": "2024-03-21T18:45:00"
     },
     {
-      "id": 5,
+      "id": "5",
       "teamA": {
         "name": "Ura Basket"
       },
@@ -51,7 +51,7 @@
       "date": "2024-03-23T18:00:00"
     },
     {
-      "id": 6,
+      "id": "6",
       "teamA": {
         "name": "Kobrat"
       },
@@ -61,7 +61,7 @@
       "date": "2024-03-25T20:15:00"
     },
     {
-      "id": 7,
+      "id": "7",
       "teamA": {
         "name": "Vilpas Vikings"
       },
@@ -71,7 +71,7 @@
       "date": "2024-03-27T19:30:00"
     },
     {
-      "id": 8,
+      "id": "8",
       "teamA": {
         "name": "Helsinki Seagulls"
       },
@@ -81,7 +81,7 @@
       "date": "2024-03-29T18:00:00"
     },
     {
-      "id": 9,
+      "id": "9",
       "teamA": {
         "name": "Lahti Basketball"
       },
@@ -91,7 +91,7 @@
       "date": "2024-03-31T19:00:00"
     },
     {
-      "id": 10,
+      "id": "10",
       "teamA": {
         "name": "Karhubasket"
       },
@@ -101,7 +101,7 @@
       "date": "2024-04-02T17:30:00"
     },
     {
-      "id": 11,
+      "id": "11",
       "teamA": {
         "name": "Bisons"
       },
@@ -111,7 +111,7 @@
       "date": "2024-04-04T18:45:00"
     },
     {
-      "id": 12,
+      "id": "12",
       "teamA": {
         "name": "Kouvot"
       },
@@ -121,7 +121,7 @@
       "date": "2024-04-06T19:15:00"
     },
     {
-      "id": 13,
+      "id": "13",
       "teamA": {
         "name": "Tampereen Pyrintö"
       },
@@ -131,7 +131,7 @@
       "date": "2024-04-08T20:00:00"
     },
     {
-      "id": 14,
+      "id": "14",
       "teamA": {
         "name": "Kataja Basket"
       },
@@ -141,7 +141,7 @@
       "date": "2024-04-10T18:30:00"
     },
     {
-      "id": 15,
+      "id": "15",
       "teamA": {
         "name": "Lahti Basketball"
       },
@@ -151,7 +151,7 @@
       "date": "2024-04-12T19:00:00"
     },
     {
-      "id": 16,
+      "id": "16",
       "teamA": {
         "name": "Kobrat"
       },
@@ -161,7 +161,7 @@
       "date": "2024-04-14T17:00:00"
     },
     {
-      "id": 17,
+      "id": "17",
       "teamA": {
         "name": "Vilpas Vikings"
       },
@@ -171,7 +171,7 @@
       "date": "2024-04-16T18:15:00"
     },
     {
-      "id": 18,
+      "id": "18",
       "teamA": {
         "name": "BC Nokia"
       },
@@ -181,7 +181,7 @@
       "date": "2024-04-18T19:30:00"
     },
     {
-      "id": 19,
+      "id": "19",
       "teamA": {
         "name": "Helsinki Seagulls"
       },
@@ -191,7 +191,7 @@
       "date": "2024-04-20T18:00:00"
     },
     {
-      "id": 20,
+      "id": "20",
       "teamA": {
         "name": "Karhubasket"
       },
@@ -201,7 +201,7 @@
       "date": "2024-04-22T19:00:00"
     },
     {
-      "id": 21,
+      "id": "21",
       "teamA": {
         "name": "Tampereen Pyrintö"
       },
@@ -211,7 +211,7 @@
       "date": "2024-04-24T18:30:00"
     },
     {
-      "id": 22,
+      "id": "22",
       "teamA": {
         "name": "BC Nokia"
       },
@@ -221,7 +221,7 @@
       "date": "2024-04-26T19:00:00"
     },
     {
-      "id": 23,
+      "id": "23",
       "teamA": {
         "name": "Lahti Basketball"
       },
@@ -231,7 +231,7 @@
       "date": "2024-04-28T17:00:00"
     },
     {
-      "id": 24,
+      "id": "24",
       "teamA": {
         "name": "Kataja Basket"
       },
@@ -241,7 +241,7 @@
       "date": "2024-04-30T18:15:00"
     },
     {
-      "id": 25,
+      "id": "25",
       "teamA": {
         "name": "Ura Basket"
       },
@@ -251,7 +251,7 @@
       "date": "2024-05-02T19:30:00"
     },
     {
-      "id": 26,
+      "id": "26",
       "teamA": {
         "name": "Kouvot"
       },
@@ -261,7 +261,7 @@
       "date": "2024-05-04T18:00:00"
     },
     {
-      "id": 27,
+      "id": "27",
       "teamA": {
         "name": "Tampereen Pyrintö"
       },
@@ -271,7 +271,7 @@
       "date": "2024-05-06T19:00:00"
     },
     {
-      "id": 28,
+      "id": "28",
       "teamA": {
         "name": "BC Nokia"
       },
@@ -281,7 +281,7 @@
       "date": "2024-05-08T18:30:00"
     },
     {
-      "id": 29,
+      "id": "29",
       "teamA": {
         "name": "Karhubasket"
       },
@@ -291,7 +291,7 @@
       "date": "2024-05-10T19:00:00"
     },
     {
-      "id": 30,
+      "id": "30",
       "teamA": {
         "name": "Helsinki Seagulls"
       },
@@ -307,77 +307,88 @@
       "played": 20,
       "won": 15,
       "lost": 5,
-      "points": 30
+      "points": 30,
+      "id": "5218"
     },
     {
       "team": "Kouvot",
       "played": 20,
       "won": 14,
       "lost": 6,
-      "points": 28
+      "points": 28,
+      "id": "81a7"
     },
     {
       "team": "BC Nokia",
       "played": 20,
       "won": 13,
       "lost": 7,
-      "points": 26
+      "points": 26,
+      "id": "7fad"
     },
     {
       "team": "Kataja Basket",
       "played": 20,
       "won": 12,
       "lost": 8,
-      "points": 24
+      "points": 24,
+      "id": "c0d6"
     },
     {
       "team": "Karhubasket",
       "played": 20,
       "won": 11,
       "lost": 9,
-      "points": 22
+      "points": 22,
+      "id": "b509"
     },
     {
       "team": "Lahti Basketball",
       "played": 20,
       "won": 10,
       "lost": 10,
-      "points": 20
+      "points": 20,
+      "id": "260a"
     },
     {
       "team": "Ura Basket",
       "played": 20,
       "won": 9,
       "lost": 11,
-      "points": 18
+      "points": 18,
+      "id": "5188"
     },
     {
       "team": "Kobrat",
       "played": 20,
       "won": 8,
       "lost": 12,
-      "points": 16
+      "points": 16,
+      "id": "08e6"
     },
     {
       "team": "Vilpas Vikings",
       "played": 20,
       "won": 7,
       "lost": 13,
-      "points": 14
+      "points": 14,
+      "id": "5ea2"
     },
     {
       "team": "Bisons",
       "played": 20,
       "won": 6,
       "lost": 14,
-      "points": 12
+      "points": 12,
+      "id": "79e2"
     },
     {
       "team": "Helsinki Seagulls",
       "played": 20,
       "won": 5,
       "lost": 15,
-      "points": 10
+      "points": 10,
+      "id": "bdc2"
     }
   ],
   "predictions": [
@@ -387,17 +398,80 @@
       "user_id": 1,
       "predicted_winner": "Tampereen Pyrintö",
       "created_at": "2024-11-12T13:00:35.734Z"
+    },
+    {
+      "id": "b767",
+      "match_id": 2,
+      "user_id": 1,
+      "predicted_winner": "Kouvot",
+      "created_at": "2024-11-12T13:09:02.438Z"
+    },
+    {
+      "id": "25fe",
+      "match_id": 3,
+      "user_id": 1,
+      "predicted_winner": "BC Nokia",
+      "created_at": "2024-11-12T13:30:36.749Z"
+    },
+    {
+      "id": "ef1f",
+      "match_id": 4,
+      "user_id": 1,
+      "predicted_winner": "Kataja Basket",
+      "created_at": "2024-11-12T13:46:29.803Z"
+    },
+    {
+      "id": "c71c",
+      "match_id": 25,
+      "user_id": 1,
+      "predicted_winner": "Ura Basket",
+      "created_at": "2024-11-13T08:54:09.549Z"
+    },
+    {
+      "id": "1f89",
+      "match_id": 26,
+      "user_id": 1,
+      "predicted_winner": "Kobrat",
+      "created_at": "2024-11-13T08:54:09.549Z"
+    },
+    {
+      "id": "136c",
+      "match_id": 27,
+      "user_id": 1,
+      "predicted_winner": "Tampereen Pyrintö",
+      "created_at": "2024-11-13T08:54:09.549Z"
+    },
+    {
+      "id": "7012",
+      "match_id": 28,
+      "user_id": 1,
+      "predicted_winner": "Lahti Basketball",
+      "created_at": "2024-11-13T08:54:09.549Z"
+    },
+    {
+      "id": "963f",
+      "match_id": 30,
+      "user_id": 1,
+      "predicted_winner": "Helsinki Seagulls",
+      "created_at": "2024-11-13T08:54:09.549Z"
+    },
+    {
+      "id": "834e",
+      "match_id": 5,
+      "user_id": 1,
+      "predicted_winner": "Kouvot",
+      "created_at": "2024-11-13T10:52:27.050Z"
     }
   ],
   "results": [
     {
-      "id": 1,
+      "id": "1",
       "match_id": 1,
       "winner": "Tampereen Pyrintö",
       "created_at": "2024-03-15T20:00:00"
     },
     {
-      "id": 2,
+      "id": "2",
       "match_id": 2,
       "winner": "Karhubasket",
       "created_at": "2024-03-17T21:00:00"
