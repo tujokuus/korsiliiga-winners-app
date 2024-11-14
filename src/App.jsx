@@ -37,6 +37,7 @@ const App = () => {
 
   // haetaan sarjataulukko tietokannasta
   useEffect(() => {
+    console.log("fetcging standings");
     pickemService
       .getStandings()
       .then(response => {
@@ -45,7 +46,7 @@ const App = () => {
       .catch(error => {
         console.log('Error fetching standings: ' , error)
       })
-  })
+  }, [])
 
   // haetaan tulokset tietokannasta
   useEffect(() => {
@@ -53,6 +54,7 @@ const App = () => {
       .getResults()
       .then(response => {
         setResults(response.data)
+        console.log("results: ", response.data)
       })
       .catch(error => {
         console.log("Error fetching results: ", error)
@@ -184,6 +186,7 @@ const App = () => {
               handleSelectedWeek={handleSelectedWeek}
               predictions={predictions}
               winners={winners}
+              results={results}
             />
           }
         />
