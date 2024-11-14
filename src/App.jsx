@@ -11,6 +11,7 @@ const App = () => {
   const [winners, setWinners] = useState([])
   const [matches, setMatches] = useState([])
   const [standings, setStandings] = useState([])
+  const [results, setResults] = useState([])
   const [points, setPoints] = useState(19)
   const [showTopBar, setShowTopBar] = useState(false)
   const [selectedWeek, setSelectedWeek] = useState(1)
@@ -45,6 +46,18 @@ const App = () => {
         console.log('Error fetching standings: ' , error)
       })
   })
+
+  // haetaan tulokset tietokannasta
+  useEffect(() => {
+    pickemService
+      .getResults()
+      .then(response => {
+        setResults(response.data)
+      })
+      .catch(error => {
+        console.log("Error fetching results: ", error)
+      })
+  }, [])
 
   // Funktio hakemaan olemassa olevat ennustukset tietokannasta
   const fetchPredictions = () => {
@@ -103,10 +116,10 @@ const App = () => {
   }
 
 
-  // Tallenna valitut voittajat tietokantaan
+  // tallentaa valitut voittajat tietokantaan
   const handleSend = (event) => {
-    event.preventDefault();
-    
+    event.preventDefault()
+  
     const newPredictions = Object.keys(winners).map((matchId, index) => ({
       match_id: parseInt(matchId),
       user_id: 1,
@@ -115,7 +128,6 @@ const App = () => {
     }))
     
     newPredictions.forEach(prediction => {
-      console.log(prediction);
       const exisistingPrediction = checkExistingPrediction(prediction.match_id, prediction.user_id)
       if (!exisistingPrediction) {
         pickemService
@@ -128,9 +140,8 @@ const App = () => {
           .catch(error => {
             console.log('Error saving prediction: ', error);
           });
-      } else {
+      } else if (exisistingPrediction.predicted_winner !== prediction.predicted_winner){
         console.log(`Ennustus ottelulle ${prediction.match_id} on jo olemassa, päivitetään ennustus`)
-        console.log(exisistingPrediction.id)
         pickemService
           .updatePredictions(exisistingPrediction.id, prediction)
           .then(response => {
@@ -140,8 +151,11 @@ const App = () => {
           .catch(error => {
             console.log('Error updating prediction: ', error) 
           })
+      } else {
+        console.log("ennustukset ei ole muttununeet, ei tallenneta uudelleen");
       }
     })
+    
   }
 
   const handleWinnerSelect = (matchId, winner) => {
