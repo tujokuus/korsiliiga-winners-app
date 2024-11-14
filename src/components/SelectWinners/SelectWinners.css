@@ -28,6 +28,7 @@
   border-radius: 5px;
   flex: 1;
   text-align: center;
+  font-size: 1.1rem;
 }
 
 .team-name:hover {
@@ -41,6 +42,8 @@
 .team-name.selectedAway {
   background: linear-gradient(to left, rgba(83, 197, 83, 1), rgba(83, 197, 83, 0.5), rgba(83, 197, 83, 0.1));
 }
+
+
 
 
 

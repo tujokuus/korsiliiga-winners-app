@@ -1,0 +1,8 @@
+.final-score {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    margin-top: 0px;
+    font-size: 0.9rem;
+    font-family: Arial, sans-serif;
+  }

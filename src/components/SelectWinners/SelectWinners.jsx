@@ -2,33 +2,24 @@ import { useState, useEffect } from 'react'
 import './selectWinners.css'
 import MatchDetails from '../MatchDetails/MatchDetails'
 import DetailsToggleButton from '../Buttons/DetailsToggleButton'
+import FinalScore from '../FinalScore/FinalScore'
   
   
   // Voittajien valitsemis komponentti jossa käytetään radio buttonia
-  const SelectWinners = ({ match, onWinnerSelect, predictions }) => {
+  const SelectWinners = ({ match, onWinnerSelect, predictions, results}) => {
       const { teamA, teamB } = match
       const date = match.date
       const [selectedTeam, setSelectedTeam] = useState(null)
       const [showDetails, setShowDetails] = useState(false)
 
       useEffect(() => {
-       // console.log("predictions: ", predictions)
-       // console.log("Matchid: ", match.id)
         const prediction = predictions.find(prediction => parseInt(prediction.match_id) === parseInt(match.id))
-       // console.log("found prediction: ", prediction);
         if (prediction) {
           setSelectedTeam(prediction.predicted_winner)
-        //  console.log(prediction.predicted_winner);
         }
       }, [predictions, match.id])
 
-      const setPredictions = (predictions) => {
-        set
-      }
-
-
       const handleSelection = (team) => {
-        //onsole.log("team: ", team, "matchid: ", match.id);
         setSelectedTeam(team)
         onWinnerSelect(match.id, team)
       }
@@ -67,6 +58,7 @@ import DetailsToggleButton from '../Buttons/DetailsToggleButton'
           >
             {teamA.name}
           </div>
+          <FinalScore matchId={match.id} results={results}/>  
           <div
             className={`team-name ${selectedTeam === teamB.name ? 'selectedAway' : ''}`}
             onClick={() => handleSelection(teamB.name)}
