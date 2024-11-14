@@ -12,13 +12,13 @@ import DetailsToggleButton from '../Buttons/DetailsToggleButton'
       const [showDetails, setShowDetails] = useState(false)
 
       useEffect(() => {
-        console.log("predictions: ", predictions)
-        console.log("Matchid: ", match.id)
+       // console.log("predictions: ", predictions)
+       // console.log("Matchid: ", match.id)
         const prediction = predictions.find(prediction => parseInt(prediction.match_id) === parseInt(match.id))
-        console.log("found prediction: ", prediction);
+       // console.log("found prediction: ", prediction);
         if (prediction) {
           setSelectedTeam(prediction.predicted_winner)
-          console.log(prediction.predicted_winner);
+        //  console.log(prediction.predicted_winner);
         }
       }, [predictions, match.id])
 
