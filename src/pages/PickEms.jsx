@@ -23,7 +23,6 @@ const PickEms = ({ matches, handleWinnerSelect, handleSend, standings, selectedW
   //console.log("selected Week pickems sivulla: ", selectedWeek, "handleselectedWeek pickems sivulla: ", handleSelectedWeek)
 
 
-
   return (
     <div className='pickems-container'>
       <div className='matches-container'>

@@ -3,10 +3,7 @@ import './finalScore.css'
 
 
 const FinalScore = ({ matchId, results }) => {
-    console.log("FinalScore results: ", results, "matchId: ", matchId);
-
     const result = results.find(results => parseInt(results.match_id) === parseInt(matchId))
-    console.log(result);
 
     return (
         <div className="final-score">

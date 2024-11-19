@@ -3,6 +3,7 @@ import './selectWinners.css'
 import MatchDetails from '../MatchDetails/MatchDetails'
 import DetailsToggleButton from '../Buttons/DetailsToggleButton'
 import FinalScore from '../FinalScore/FinalScore'
+import PredictionResult from '../PredictionResult/PredictionResult'
   
   
   // Voittajien valitsemis komponentti jossa käytetään radio buttonia
@@ -47,29 +48,30 @@ import FinalScore from '../FinalScore/FinalScore'
 
       return (
       <form>
-      <div className="match-container">
-        <div className="match-info">
-            {formattedDate}     {formattedTime}
+        <div className="match-container" >
+          <div className="match-info">
+              {formattedDate}     {formattedTime}
+          </div>
+          <div className="team-selection">
+            <div
+              className={`team-name ${selectedTeam === teamA.name ? 'selectedHome' : ''}`}
+              onClick={() => handleSelection(teamA.name)}
+            >
+              {teamA.name}
+            </div>
+            <FinalScore matchId={match.id} results={results}/>  
+            <div
+              className={`team-name ${selectedTeam === teamB.name ? 'selectedAway' : ''}`}
+              onClick={() => handleSelection(teamB.name)}
+            >
+              {teamB.name}
+            </div>
+            <PredictionResult matchId={match.id} results={results} predictions={predictions}/>
+          </div> 
+          <DetailsToggleButton showDetails={showDetails} toggleDetails={toggleDetails} className='details-toggle-button' />
+          {showDetails && <MatchDetails match={match} />}
         </div>
-        <div className="team-selection">
-          <div
-            className={`team-name ${selectedTeam === teamA.name ? 'selectedHome' : ''}`}
-            onClick={() => handleSelection(teamA.name)}
-          >
-            {teamA.name}
-          </div>
-          <FinalScore matchId={match.id} results={results}/>  
-          <div
-            className={`team-name ${selectedTeam === teamB.name ? 'selectedAway' : ''}`}
-            onClick={() => handleSelection(teamB.name)}
-          >
-            {teamB.name}
-          </div>
-        </div> 
-        <DetailsToggleButton showDetails={showDetails} toggleDetails={toggleDetails} className='details-toggle-button' />
-        {showDetails && <MatchDetails match={match} />}
-      </div>
-    </form>
+      </form>
       )
     }
 

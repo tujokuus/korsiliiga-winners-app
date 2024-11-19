@@ -1,0 +1,14 @@
+.prediction-result {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .correct {
+    color: green !important;
+  }
+  
+  .incorrect {
+    color: red !important;
+  }

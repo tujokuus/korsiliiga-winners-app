@@ -37,7 +37,6 @@ const App = () => {
 
   // haetaan sarjataulukko tietokannasta
   useEffect(() => {
-    console.log("fetcging standings");
     pickemService
       .getStandings()
       .then(response => {

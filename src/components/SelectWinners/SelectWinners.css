@@ -4,6 +4,16 @@
   align-items: center;
 }
 
+.correct-border {
+  border-color: green;
+  box-shadow: 0 0 10px green;
+}
+
+.incorrect-border {
+  border-color: red;
+  box-shadow: 0 0 10px red;
+}
+
 .match-info {
   display: flex;
   justify-content: center;
