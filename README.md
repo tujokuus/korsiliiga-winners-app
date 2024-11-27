@@ -1,3 +1,7 @@
+# Pick'Em App
+
+Tämä on Pick'Em-sovellus, jonka avulla käyttäjät voivat ennustaa otteluiden voittajia ja tarkistaa ennustustensa oikeellisuuden. Sovellus on rakennettu harjoitustarkoituksessa web-ohjelmoinnin taitojen kehittämiseksi.
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
