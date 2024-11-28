@@ -4,7 +4,9 @@ const Statistics = () => {
             <h2>
                 Täältä löydät tilastot
             </h2>
-            TODO:
+            <p>
+                Tältä sivulta löytyy tulevaisuudessa tilastoja joukkueista ja pelaajista.
+            </p>
         </div>
     )
 }
