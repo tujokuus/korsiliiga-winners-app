@@ -395,22 +395,22 @@
     {
       "match_id": 1,
       "user_id": 1,
-      "predicted_winner": "Tampereen Pyrintö",
-      "created_at": "2024-11-19T08:54:40.096Z",
+      "predicted_winner": "Bisons",
+      "created_at": "2024-11-27T12:53:57.996Z",
       "id": "59c8"
     },
     {
       "match_id": 2,
       "user_id": 1,
       "predicted_winner": "Kouvot",
-      "created_at": "2024-11-14T14:41:08.418Z",
+      "created_at": "2024-11-27T12:54:09.321Z",
       "id": "6ac6"
     },
     {
       "match_id": 3,
       "user_id": 1,
-      "predicted_winner": "Helsinki Seagulls",
-      "created_at": "2024-11-14T10:33:09.374Z",
+      "predicted_winner": "BC Nokia",
+      "created_at": "2024-11-27T12:53:48.537Z",
       "id": "73cd"
     },
     {
@@ -421,18 +421,25 @@
       "id": "775b"
     },
     {
-      "id": "b4f3",
       "match_id": 5,
       "user_id": 1,
-      "predicted_winner": "Kouvot",
-      "created_at": "2024-11-14T10:44:11.912Z"
+      "predicted_winner": "Ura Basket",
+      "created_at": "2024-11-19T08:58:35.329Z",
+      "id": "b4f3"
     },
     {
-      "id": "7d02",
       "match_id": 6,
       "user_id": 1,
-      "predicted_winner": "Kobrat",
-      "created_at": "2024-11-14T10:44:11.912Z"
+      "predicted_winner": "Tampereen Pyrintö",
+      "created_at": "2024-11-19T08:58:25.221Z",
+      "id": "7d02"
+    },
+    {
+      "id": "eb1c",
+      "match_id": 7,
+      "user_id": 1,
+      "predicted_winner": "BC Nokia",
+      "created_at": "2024-11-19T08:58:25.221Z"
     }
   ],
   "results": [
