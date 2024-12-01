@@ -1,19 +1,18 @@
 import axios from "axios"
 
-const baseUrl = 'http://localhost:3001'
-const matches = 'http://localhost:3001/matches'
-const standings = 'http://localhost:3001/standings'
+const baseUrl = 'http://localhost:3001/api'
+
 
 const getMatches = () => {
-    return axios.get(matches)
+    return axios.get(`${baseUrl}/matches`)
 }
 
 const getStandings = () => {
-    return axios.get(standings)
+    return axios.get(`${baseUrl}/standings`)
 }
 
 const savePredictions = (prediction) => {
-    return axios.post(`${baseUrl}/predictions`, prediction);
+    return axios.post(`${baseUrl}/predictions`, prediction)
 }
 
 const getPredictions = () => {
@@ -21,7 +20,7 @@ const getPredictions = () => {
 }
 
 const updatePredictions = (id, prediction) => {
-    return axios.put(`${baseUrl}/predictions/${id}`, prediction)
+    return axios.patch(`${baseUrl}/predictions/${id}`, prediction)
 }
 
 const getResults = () => {
