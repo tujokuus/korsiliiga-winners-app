@@ -2,10 +2,14 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const cors = require('cors')
+const path = require('path')
 
 app.use(cors())
 app.use(express.json())
 app.use(express.static('dist'))
+
+app.use(express.static(path.join(__dirname, 'dist')))
+
 
 app.use(
   morgan(':method :url :status :res[content-length] - :response-time ms :post :patch')
@@ -16,6 +20,7 @@ morgan.token('post', (req) => {
 morgan.token('patch', (req) => {
   return req.method === 'PATCH' ? JSON.stringify(req.body) : ' '
 })
+
 
 let matches = [
   {
@@ -573,6 +578,10 @@ app.patch('/api/predictions/:id', (request, response) => {
     } else {
         response.status(404).end()
     }
+})
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
 
 const PORT = process.env.PORT || 3001
