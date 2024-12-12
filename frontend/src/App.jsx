@@ -17,7 +17,6 @@ const App = () => {
   const [selectedWeek, setSelectedWeek] = useState(1)
   const [predictions, setPredictions] = useState([])
 
-  
 
   useEffect(() => {
     setSelectedWeek(getCurrentWeek())
