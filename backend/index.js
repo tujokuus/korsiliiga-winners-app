@@ -482,6 +482,18 @@ let points = [
   {
     "userId": 1,
     "points": 20
+  },
+  {
+    "userId": 2,
+    "points": 24
+  },
+  {
+    "userId": 3,
+    "points": 2
+  },
+  {
+    "userId": 4,
+    "points": 21
   }
 ]
 
@@ -594,8 +606,17 @@ app.get('/api/points', (request, response) => {
 
 // hakee tietyn käyttäjän pisteet pisteet
 app.get('/api/points/:userId', (request, response) => {
-  response.json(points)
+  const userId = request.params.userId
+  console.log("userId backendissa: ", userId)
+  const userPoints = points.find(point => point.userId === parseInt(userId))
+
+  if (userPoints) {
+    response.json(userPoints)
+  } else {
+    response.status(404).json({ error: 'User not found' })
+  }
 })
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'))
