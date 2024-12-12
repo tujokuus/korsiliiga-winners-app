@@ -12,7 +12,7 @@ const App = () => {
   const [matches, setMatches] = useState([])
   const [standings, setStandings] = useState([])
   const [results, setResults] = useState([])
-  const [points, setPoints] = useState(19)
+  const [points, setPoints] = useState(0)
   const [showTopBar, setShowTopBar] = useState(false)
   const [selectedWeek, setSelectedWeek] = useState(1)
   const [predictions, setPredictions] = useState([])
@@ -56,6 +56,19 @@ const App = () => {
       })
       .catch(error => {
         console.log("Error fetching results: ", error)
+      })
+  }, [])
+
+  // haetaan pisteet tietokannasta
+  useEffect(() => {
+    pickemService
+      .getPoints('1')
+      .then(response => {
+        setPoints(response.data.points)
+        console.log("points: ", response.data)
+      })
+      .catch(error => {
+        console.log('Error fetching points: ' , error)
       })
   }, [])
 
