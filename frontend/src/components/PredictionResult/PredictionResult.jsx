@@ -10,7 +10,6 @@ useEffect(() => {
    
     if (result && prediction) {
         setIsPredictionCorrect(result.winner === prediction.predicted_winner)
-        console.log("onko oikein?:  ", isPredictionCorrect);
     } else {
         setIsPredictionCorrect(null)
     }
