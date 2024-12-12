@@ -31,4 +31,8 @@ const getResults = () => {
     return axios.get(`${baseUrl}/results`)	
 }
 
-export default { getMatches, getStandings, savePredictions, getPredictions, updatePredictions, getResults }
+const getPoints = (id) => {
+    return axios.get(`${baseUrl}/points/${id}`)
+}
+
+export default { getMatches, getStandings, savePredictions, getPredictions, updatePredictions, getResults, getPoints }
