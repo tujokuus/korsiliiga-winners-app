@@ -478,6 +478,13 @@ let standings = [
   }
 ]
 
+let points = [
+  {
+    "userId": 1,
+    "points": 20
+  }
+]
+
 
 app.get('/', (request, response) => {
     response.send('<h1>Hello World!</h1>')
@@ -578,6 +585,16 @@ app.patch('/api/predictions/:id', (request, response) => {
     } else {
         response.status(404).end()
     }
+})
+
+// hakee kaikkien käyttäjien pisteet
+app.get('/api/points', (request, response) => {
+  response.json(points)
+})
+
+// hakee tietyn käyttäjän pisteet pisteet
+app.get('/api/points/:userId', (request, response) => {
+  response.json(points)
 })
 
 app.get('*', (req, res) => {
