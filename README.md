@@ -2,6 +2,8 @@
 
 Tämä on Pick'Em-sovellus, jonka avulla käyttäjät voivat ennustaa otteluiden voittajia ja tarkistaa ennustustensa oikeellisuuden. Sovellus on rakennettu harjoitustarkoituksessa web-ohjelmoinnin taitojen kehittämiseksi. Sovellus on vielä keskeneräinen.
 
+Esimerkki sovellus: https://korisliiga-pickems-app-ce7bd771b68b.herokuapp.com/pickems
+
 Alla kuvakaappaus sovelluksesta:
 
 ![Näyttökuva 2024-11-27 121310](https://github.com/user-attachments/assets/3899abff-6399-449f-b14e-36d931487fd9)
