@@ -1,10 +1,10 @@
 import axios from "axios"
 
 // build the base url
-//const baseUrl = '/api'
+const baseUrl = '/api'
 
 // for development
-const baseUrl = 'http://localhost:3001/api'
+//const baseUrl = 'http://localhost:3001/api'
 
 
 const getMatches = () => {
