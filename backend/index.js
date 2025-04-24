@@ -6,9 +6,10 @@ const path = require('path')
 
 app.use(cors())
 app.use(express.json())
-app.use(express.static('dist'))
-
+//app.use(express.static('dist'))
+app.use(morgan('tiny'))
 app.use(express.static(path.join(__dirname, 'dist')))
+
 
 
 app.use(
@@ -20,6 +21,7 @@ morgan.token('post', (req) => {
 morgan.token('patch', (req) => {
   return req.method === 'PATCH' ? JSON.stringify(req.body) : ' '
 })
+
 
 
 let matches = [

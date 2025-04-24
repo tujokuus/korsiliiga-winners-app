@@ -1,7 +1,10 @@
 import axios from "axios"
 
+// määritetaan URL ehdollisesti
+const baseUrl = process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3001/api'
+
 // build the base url
-const baseUrl = '/api'
+//const baseUrl = '/api'
 
 // for development
 //const baseUrl = 'http://localhost:3001/api'
